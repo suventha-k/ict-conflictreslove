@@ -19,6 +19,8 @@ public class courses {
         private String name;
         private int c_fees;
         private double Fees;
-        
+
+
+        private double Fees_for_month;
     }
 }
