@@ -11,7 +11,7 @@ import lombok.NoArgsConstructor;
 public class studdents {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private Long iddddd;
     private String name;
     private int age;
 }
