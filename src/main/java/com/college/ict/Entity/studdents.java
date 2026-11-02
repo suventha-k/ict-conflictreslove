@@ -12,7 +12,7 @@ public class studdents {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long Student_ID;
-    private String Student_Name;
+    private String Student_Nme;
     private int Addresss;
     private int Age;
 }

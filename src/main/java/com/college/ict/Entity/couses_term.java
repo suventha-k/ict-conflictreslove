@@ -4,7 +4,7 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 
-public class couses {
+public class couses_term {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long course_id;
