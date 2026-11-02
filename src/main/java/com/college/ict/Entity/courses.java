@@ -17,5 +17,6 @@ public class courses {
         private Long Course_ID;
         private int Duration;
         private double Fees;
+        private double Fees_for_month;
     }
 }
