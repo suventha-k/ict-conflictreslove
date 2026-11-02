@@ -12,5 +12,13 @@ public class courses {
     @Table(name = "courses")
     public class Course {
 
+        @Id
+        @GeneratedValue(strategy = GenerationType.IDENTITY)
+        private Long Course_ID;
+        private int Duration;
+        private String name;
+        private int c_fees;
+        private double Fees;
+        private double Fees_for_month;
     }
 }
