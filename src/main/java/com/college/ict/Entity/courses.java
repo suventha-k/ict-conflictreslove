@@ -17,8 +17,8 @@ public class courses {
         private Long courseId;
 
         private String course___Name;
-        private String courseCode;
-        private int duration_duration;
+        private String courseeeeeeeeeeeeeeeeeeeeeeeCode;
+        private int durationnnnnnnnnnnnnn_duration;
         private double fee;
     }
 }
