@@ -21,7 +21,22 @@ public class StudentService {
         return studentRepository.findAll();
     }
 
-    public Optional<students> getStudentById(Long id){
-        return studentRepository.findById(id);
+    public students saveStudent(students student) {
+        return studentRepository.save(student);
     }
+
+    // GET STUDENT BY ID
+    public students getStudentById(Long id) {
+        return studentRepository.findById(id)
+                .orElseThrow(() -> new RuntimeException("Student not found: " + id));
+    }
+
+    // UPDATE STUDENT
+    public students updateStudent(Long id, students student) {
+        students existingStudent = getStudentById(id);
+        existingStudent.setName(student.getName());
+        existingStudent.setAddress(student.getAddress());
+        return studentRepository.save(existingStudent);
+    }
+
 }
