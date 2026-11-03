@@ -1,8 +1,7 @@
 package com.college.ict.Controller;
 
-import com.college.ict.Entity.students;
+import com.college.ict.Entity.Students;
 import com.college.ict.Service.StudentService;
-import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -19,29 +18,29 @@ public class StudentAPI {
 
     //add student
     @PostMapping
-    public students addStudent(@RequestBody students student) {
+    public Students addStudent(@RequestBody Students student) {
         return studentService.saveStudent(student);
     }
 
     //get all student
     @GetMapping
-    public List<students> getAllStudent() {
+    public List<Students> getAllStudent() {
         return  studentService.getAllStudents();
     }
 
 
     // GET - STUDENT BY ID
     @GetMapping("/{id}")
-    public students getStudentById(@PathVariable Long id) {
+    public Students getStudentById(@PathVariable Long id) {
         return studentService.getStudentById(id);
     }
 
 
     // PUT - UPDATE STUDENT
     @PutMapping("/{id}")
-    public students updateStudent(
+    public Students updateStudent(
             @PathVariable Long id,
-            @RequestBody students student) {
+            @RequestBody Students student) {
         return studentService.updateStudent(id, student);
     }
 

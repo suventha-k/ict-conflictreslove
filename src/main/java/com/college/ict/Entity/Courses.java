@@ -4,7 +4,7 @@ import jakarta.persistence.*;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-public class courses {
+public class Courses {
 
     @Entity
     @Data
@@ -16,9 +16,7 @@ public class courses {
         @GeneratedValue(strategy = GenerationType.IDENTITY)
         private Long Course_ID;
         private int Duration;
-        private String name;
-        private int c_fees;
-        private double Fees;
-        private double Fees_for_month;
+        private String Course_Name;
+        private int Fee;
     }
 }
