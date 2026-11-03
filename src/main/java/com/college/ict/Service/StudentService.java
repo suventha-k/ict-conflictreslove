@@ -41,5 +41,12 @@ public class StudentService {
         existingStudent.setAddress(student.getAddress());
         return studentRepository.save(existingStudent);
     }
+    //deldete
+    public void deletestudent(Long id) {
+        students student = studentRepository.findById(id)
+                .orElseThrow(() ->
+                        new RuntimeException("Student not found with ID: " + id));
+        studentRepository.delete(student);
+    }
 
 }

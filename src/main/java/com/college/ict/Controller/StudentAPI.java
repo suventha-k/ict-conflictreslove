@@ -35,7 +35,6 @@ public class StudentAPI {
         return studentService.getStudentById(id);
     }
 
-
     // PUT - UPDATE STUDENT
     @PutMapping("/{id}")
     public Students updateStudent(
@@ -44,5 +43,9 @@ public class StudentAPI {
         return studentService.updateStudent(id, student);
     }
 
-
+    @DeleteMapping("/{id}")
+    public String deletestudent(@PathVariable Long id){
+        studentService.deletestudent(id);
+        return "student delete successfully";
+    }
 }
