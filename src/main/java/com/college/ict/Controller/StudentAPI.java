@@ -3,6 +3,8 @@ package com.college.ict.Controller;
 import com.college.ict.Entity.students;
 import com.college.ict.Service.StudentService;
 import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -10,6 +12,7 @@ import java.util.List;
 @RestController
 @RequestMapping("/student")
 public class StudentAPI {
+    @Autowired
     private final StudentService studentService;
 
     @PostMapping
@@ -40,5 +43,15 @@ public class StudentAPI {
     @GetMapping
     public List<students> getAllStudent() {
         return  studentService.getAllStudents();
+    }
+
+    @DeleteMapping("/{id}")
+    public ResponseEntity<String> deleteStudent(@PathVariable Long id){
+        try {
+            studentService.deleteStudent(id);
+            return ResponseEntity.ok("Deleted");
+        } catch (Exception e) {
+            return ResponseEntity.notFound().build();
+        }
     }
 }
