@@ -2,14 +2,32 @@ package com.college.ict.Controller;
 
 import com.college.ict.Entity.students;
 import com.college.ict.Service.StudentService;
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
-@RequestMapping("/api/students")
+@RequestMapping("/student")
 public class StudentAPI {
-    @Autowired
-    private StudentService studentService;
+    private final StudentService studentService;
+
+    public StudentAPI(StudentService studentService){
+        this.studentService = studentService;
+    }
+
+
+    //add student
+    @PostMapping
+    public students addStudent(@RequestBody students student) {
+        return studentService.saveStudent(student);
+    }
+
+    //get all student
+    @GetMapping
+    public List<students> getAllStudent() {
+        return  studentService.getAllStudents();
+    }
 
 
     // GET - STUDENT BY ID
@@ -24,8 +42,8 @@ public class StudentAPI {
     public students updateStudent(
             @PathVariable Long id,
             @RequestBody students student) {
-
         return studentService.updateStudent(id, student);
     }
+
 
 }
