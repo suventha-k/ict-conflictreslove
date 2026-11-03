@@ -8,7 +8,11 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/student")
+@RequestMapping("/  @DeleteMapping(\"/{id}\")\n" +
+        "    public String deletestudent(@PathVariable Long id){\n" +
+        "        service.deletestudent(id);\n" +
+        "        return \"student delete successfully\";\n" +
+        "    }")
 public class StudentAPI {
     private final StudentService studentService;
 
@@ -40,5 +44,11 @@ public class StudentAPI {
     @GetMapping
     public List<students> getAllStudent() {
         return  studentService.getAllStudents();
+    }
+
+    @DeleteMapping("/{id}")
+    public String deletestudent(@PathVariable Long id){
+        studentService.deletestudent(id);
+        return "student delete successfully";
     }
 }
