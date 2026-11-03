@@ -1,12 +1,15 @@
 package com.college.ict.Controller;
 
 import com.college.ict.Entity.students;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PutMapping;
-import org.springframework.web.bind.annotation.RequestBody;
+import com.college.ict.Service.StudentService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.*;
 
+@RestController
+@RequestMapping("/api/students")
 public class StudentAPI {
+    @Autowired
+    private StudentService studentService;
 
 
     // GET - STUDENT BY ID
@@ -22,7 +25,7 @@ public class StudentAPI {
             @PathVariable Long id,
             @RequestBody students student) {
 
-        return .updateStudent(id, student);
+        return studentService.updateStudent(id, student);
     }
 
 }
