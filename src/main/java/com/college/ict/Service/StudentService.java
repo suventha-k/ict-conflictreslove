@@ -39,4 +39,14 @@ public class StudentService {
         return studentRepository.save(existingStudent);
     }
 
+    //Delete student by ID
+    public void deleteStudent(Long id){
+        if (studentRepository.existsById(id)) {
+            studentRepository.deleteById(id);
+        } else {
+            throw new RuntimeException("Student not found");
+        }
+    }
+
 }
+
