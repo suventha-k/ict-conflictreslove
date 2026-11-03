@@ -1,12 +1,10 @@
 package com.college.ict.Service;
 
-import com.college.ict.Controller.StudentAPI;
-import com.college.ict.Entity.students;
+import com.college.ict.Entity.Students;
 import com.college.ict.Repository.StudentRepository;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-import java.util.Optional;
 
 @Service
 public class StudentService {
@@ -17,36 +15,38 @@ public class StudentService {
         this.studentRepository = studentRepository;
     }
 
-    public List<students> getAllStudents(){
-        return studentRepository.findAll();
-    }
 
-    public students saveStudent(students student) {
+    //save students
+    public Students saveStudent(Students student) {
         return studentRepository.save(student);
     }
 
+
+    //get all students
+    public List<Students> getAllStudents(){
+        return studentRepository.findAll();
+    }
+
+
     // GET STUDENT BY ID
-    public students getStudentById(Long id) {
+    public Students getStudentById(Long id) {
         return studentRepository.findById(id)
                 .orElseThrow(() -> new RuntimeException("Student not found: " + id));
     }
 
     // UPDATE STUDENT
-    public students updateStudent(Long id, students student) {
-        students existingStudent = getStudentById(id);
+    public Students updateStudent(Long id, Students student) {
+        Students existingStudent = getStudentById(id);
         existingStudent.setName(student.getName());
         existingStudent.setAddress(student.getAddress());
         return studentRepository.save(existingStudent);
     }
-
-    //Delete student by ID
-    public void deleteStudent(Long id){
-        if (studentRepository.existsById(id)) {
-            studentRepository.deleteById(id);
-        } else {
-            throw new RuntimeException("Student not found");
-        }
+    //delete students
+    public void deleteStudent(Long id) {
+        Students student = studentRepository.findById(id)
+                .orElseThrow(() ->
+                        new RuntimeException("Student not found with ID: " + id));
+        studentRepository.delete(student);
     }
-
 }
 
