@@ -17,13 +17,18 @@ public class StudentService {
         this.studentRepository = studentRepository;
     }
 
+
+    //save students
+    public students saveStudent(students student) {
+        return studentRepository.save(student);
+    }
+
+
+    //get all students
     public List<students> getAllStudents(){
         return studentRepository.findAll();
     }
 
-    public students saveStudent(students student) {
-        return studentRepository.save(student);
-    }
 
     // GET STUDENT BY ID
     public students getStudentById(Long id) {
